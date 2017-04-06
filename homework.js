@@ -52,17 +52,55 @@ console.log(list3);
 
 // i want to take each number in the array, compare them, and figure out if the second number is greather than the first
 
-function greaterThan(numbers) {
-    let difference = numbers[0]; //the difference of the numbers in the array should start with the first number
+function greaterThan(numbers) { // looking at the numbers and determine which number in the array is greater
+    let compare = numbers[0]; //the comparison of the numbers in the array starts with the first number
+    let boolean = false; // the first number is assumed to be the biggest, which means that it is false that the second number is greater than
+    
 
     for (count = 0; count<numbers.length; count++) {
-    if (numbers[count] > difference) { //if the second number in the array is greater than the first number
-        difference = numbers[count];
+    if (numbers[count] > compare) { //if the second number in the array is greater than the first number in comparison then...
+        boolean = true; // it is true that the second number is greather than the first
         }
     }
-return difference ;
+return boolean;
 
 }
 
-greaterThan(5, 6); // returns true
-greaterThan(4, 1); // returns false
+let Array1 = greaterThan([5, 6]); // returns true 
+let Array2 = greaterThan([4, 1]); // returns false
+
+console.log(Array1); // this will call for the comparison of the array of numbers and it should be true that 6 is greater than 5
+console.log(Array2); // this will call for the comparison of the array of numbers and it should be false that 1 is greater than 4
+
+//PROBLEM FOUR
+//Write a function called secondLargest that takes an array and returns the second largest number. 
+//Hint: this is similar to one of the problems you did yesterday.
+
+// i want to look at the array of four numbers, compare all of them (starting with the first and going to the last), and then figure out which number is the second biggest number
+
+
+function secondLargest(numbers) { //looking at the numbers of each array and determine which number is second biggest number
+    let biggest = 0;
+    let otherBiggest = 0;
+
+    for (count = 0; count < numbers.length; count++) {
+       if (numbers[count] > biggest); {
+            otherBiggest = biggest; 
+            biggest = numbers[count];
+
+        }
+
+       if (numbers[count] > otherBiggest && biggest > numbers[count]) {//if the current number is bigger than the second biggest and the biggest number is smaller than the current number then...
+            otherBiggest = numbers[count]; //the new second biggest is the current number
+        }
+        
+    }
+    return otherBiggest;
+
+}
+
+let num1 = secondLargest([1, 4, 5, 8]); // returns 5 because it is bigger than 4 and 1 but smaller than 8
+let num2 = secondLargest([8, 3, 5, 1, 9, 10]); // returns 9
+
+console.log(num1);
+console.log(num2);
