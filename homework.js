@@ -144,18 +144,17 @@ console.log(value2);
 
 function piglatin(phrase) { // look at each phrase and make them into big latin, 
    let array = phrase.split(" "); // here, i want to make the phrase split into two seperate words
-   //let arrayTwo = phrase.split(""); //i also want take the letters of each word and split them up to be able to move an individual letter
 
 
-   for (let count = 0; count < array.length; count++) { //go through the word in entirety
-        let pig = array[count].split("");
-        let one = pig.shift(); 
-        pig.push(one);
-        pig.push('ay');
-        let two = pig.join(""); 
+   for (let count = 0; count < array.length; count++) { //go through the word in entirety, and can only go through it one word at a time
+        let pig = array[count].split(""); // getting the current word and breaking it into letters
+        let one = pig.shift(); // take the pig variable shift the first letter of the word, then we rename it to one, then....
+        pig.push(one); // pushes the first letter of the word to the end
+        pig.push('ay'); // adds the 'ay'
+        let two = pig.join(""); // two is the name of the process that joins all the letters together
 
         // if we dont change array its not going to be different
-        array[count] = two;
+        array[count] = two; // array[count] = the process of making the letters into words
         
         
         //take first letter off the first word
@@ -175,3 +174,31 @@ let theWord2 = piglatin('come now'); // returns 'omecay ownay'
 
 console.log(theWord1);
 console.log(theWord2);
+
+// PROBLEM SEVEN ------------------------
+
+//Write a function called longestWord that takes a single string and returns the longest word in the string.
+
+//Hint: look into the split() function that you can call on strings.
+
+//I want to go through the entire phrase, word by word and determine which word is the longest. I will neet to split the phrase up using a split funtion 
+//and have it count the letters of each word. 
+
+function longestWord(phrase) { //what word is the longest
+    let strSplit = phrase.split(" "); // create a new variable that is equal to the phrase split up into words
+    let long = 0; // start with the first letter of the phrase
+
+for (let count = 0; count< strSplit.length; count++) { // go through the entire length of the phrase
+    if(strSplit[count].length > long) { // if the string split of the entire word is greater than the word before it then....
+    let long = strSplit[count].length; // it is the new longest
+    }
+}
+return long; // i want the answer to be the longest word
+}
+
+console.log(longestWord1);
+console.log(longestWord2);
+
+
+let longestWord1 = longestWord('have you ever seen a penguin go to tea?'); // returns 'penguin'
+let longestWord2 = longestWord('fool me once, shame on me. fool me twice, shame on heathcliff'); // returns 'heathcliff'
