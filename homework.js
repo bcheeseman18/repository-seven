@@ -104,3 +104,74 @@ let num2 = secondLargest([8, 3, 5, 1, 9, 10]); // returns 9
 
 console.log(num1);
 console.log(num2);
+
+//PROBLEM FIVE
+
+//Write a function called containsVowel that takes a single string and returns true if there is at least one value or false otherwise.
+
+//i want to look at each word and determine if the word contains a vowel, if it does then it returns true, if it doesnt have a vowel it returns false
+
+function containsVowel(words) { // looking through each word and determining if there are vowels in it
+    let vowel_list = 'aeiouAEIOU';  //list of values, bother upper and lower case, that we would like our test to be compared to
+    let vowel = false; // it is false that the word  to contain a vowel
+
+for (let count = 0; count < words.length; count++) { //look through each word in its entirety, going up one letter at a time, starting at first letter
+    if (vowel_list.indexOf(words[count]) !== -1) {  //let me know the first sign of each vowel in each word, and if it doesnt equal -1(no vowels) then...
+      vowel = true; // its true that there are vowels
+    }
+}
+
+return vowel;
+
+}
+
+
+let value1 = containsVowel('alpha'); // returns true
+let value2 = containsVowel('hmph'); // returns false
+
+console.log(value1);
+console.log(value2);
+
+
+// PROBLEM SIX------------------------
+
+//Write a function called piglatin that takes a single string and returns the piglatin version of that string.
+
+//Hint: look into the split() function that you can call on strings.
+
+//i want to look at each word in each phrase individually, split the first letter from the word and move it to the end of that word
+// i want to do this for both words in the phrase
+
+function piglatin(phrase) { // look at each phrase and make them into big latin, 
+   let array = phrase.split(" "); // here, i want to make the phrase split into two seperate words
+   //let arrayTwo = phrase.split(""); //i also want take the letters of each word and split them up to be able to move an individual letter
+
+
+   for (let count = 0; count < array.length; count++) { //go through the word in entirety
+        let pig = array[count].split("");
+        let one = pig.shift(); 
+        pig.push(one);
+        pig.push('ay');
+        let two = pig.join(""); 
+
+        // if we dont change array its not going to be different
+        array[count] = two;
+        
+        
+        //take first letter off the first word
+
+   /* (array(phrase[count])) { // array = the split phrase
+        arrayTwo.shift = pig; //i want to remove the first item of the array --use shift()
+        let pig = phrase.push(); // i want to add the first item to the end of the word -- use push()
+    
+        } */
+    }
+        return array.join(" "); 
+
+}
+
+let theWord1 = piglatin('good day'); // returns 'oodgay ayday'
+let theWord2 = piglatin('come now'); // returns 'omecay ownay'
+
+console.log(theWord1);
+console.log(theWord2);
